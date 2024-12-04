@@ -33,8 +33,54 @@
         </section>
 
         <section id="section3" class="section about">
-            <h2>About Me</h2>
-            <p>请联系我</p>
+            <h2>和我说点什么吧......</h2>
+            <p><div class="input-container">
+                <input type="text" class="input-box" placeholder="请输入内容">
+                <br>
+                <button class="submit-btn">提交</button>
+            </div>
+            
+            <style>
+                .input-container {
+                    text-align: center;
+                }
+            
+                .input-box {
+                    padding: 12px 20px;
+                    width: 300px;
+                    border: 2px solid #ccc;
+                    border-radius: 25px;
+                    font-size: 16px;
+                    transition: border-color 0.3s, box-shadow 0.3s;
+                }
+            
+                .input-box:focus {
+                    border-color: #4CAF50;
+                    box-shadow: 0 0 8px rgba(76, 175, 80, 0.5);
+                    outline: none;
+                }
+            
+                .input-box::placeholder {
+                    color: #888;
+                }
+            
+                .submit-btn {
+                    margin-top: 20px;
+                    padding: 10px 20px;
+                    border: none;
+                    border-radius: 20px;
+                    background-color: #4CAF50;
+                    color: white;
+                    font-size: 16px;
+                    cursor: pointer;
+                    transition: background-color 0.3s;
+                }
+            
+                .submit-btn:hover {
+                    background-color: #45a049;
+                }
+            </style>
+            </p>
         </section>
 
         <section id="section4" class="section contact">

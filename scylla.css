@@ -108,30 +108,44 @@ body {
 }
 
 
-/* 弹幕容器样式 */
-#danmaku-container {
-    position: relative;
+/* 页面背景和字体设置 */
+body {
+    background-color: transparent; /* 设置页面背景为透明 */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #000; /* 设置文字颜色为黑色 */
+  }
+  
+  /* 设置弹幕容器 */
+  #danmaku-container {
+    position: fixed; /* 使用固定定位，让弹幕固定在屏幕上 */
+    top: 50%;
+    left: 0;
     width: 100%;
-    height: 200px; /* 弹幕区域的高度 */
-    overflow: hidden; /* 隐藏超出的内容 */
-    background-color: #000;
-    color: white;
-    font-size: 24px;
-}
-
-/* 弹幕的样式 */
-.danmaku {
+    height: 40px; /* 设置容器高度 */
+    overflow: hidden;
+    white-space: nowrap; /* 不换行 */
+    z-index: 1000; /* 确保弹幕在最上层 */
+  }
+  
+  /* 弹幕的文字样式 */
+  .danmaku {
+    font-size: 20px;
+    font-weight: bold;
+    color: black; /* 字体颜色为黑色 */
     position: absolute;
     white-space: nowrap;
-    animation: moveDanmaku 10s linear infinite;
-}
-
-/* 弹幕的动画效果 */
-@keyframes moveDanmaku {
+    animation: scroll 10s linear infinite; /* 设置动画，控制弹幕从右到左移动 */
+  }
+  
+  /* 弹幕滚动的动画效果 */
+  @keyframes scroll {
     0% {
-        left: 100%; /* 从右侧开始 */
+      left: 100%; /* 从右侧开始 */
     }
     100% {
-        left: -100%; /* 移动到左侧消失 */
+      left: -100%; /* 滚动到屏幕左侧 */
     }
-}
+  }
+  

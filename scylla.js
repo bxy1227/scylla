@@ -19,34 +19,26 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-// 弹幕文本数组
-const danmakuTexts = [
-    "马杰：生日快乐小网站！",
-  ];
+// 获取弹幕容器
+const danmakuContainer = document.getElementById('danmaku-container');
+
+// 模拟生成弹幕
+function createDanmaku(text) {
+  const danmakuElement = document.createElement('div');
+  danmakuElement.classList.add('danmaku'); // 添加类名
+  danmakuElement.innerText = text; // 设置弹幕文本内容
+  danmakuElement.style.top = `${Math.random() * 100}px`; // 随机设置弹幕的垂直位置
   
-  // 获取弹幕容器
-  const container = document.getElementById('danmaku-container');
-  
-  // 创建并加入弹幕
-  function createDanmaku() {
-    // 随机选择一条弹幕文本
-    const text = danmakuTexts[Math.floor(Math.random() * danmakuTexts.length)];
-  
-    // 创建弹幕div
-    const danmaku = document.createElement('div');
-    danmaku.className = 'danmaku';
-    danmaku.textContent = text;
-  
-    // 设置弹幕初始位置
-    danmaku.style.top = Math.random() * (container.offsetHeight - 30) + 'px'; // 随机垂直位置
-    container.appendChild(danmaku);
-  
-    // 删除超出视图的弹幕
-    setTimeout(() => {
-      danmaku.remove();
-    }, 10000); // 弹幕动画时长
-  }
-  
-  // 每2秒创建一条弹幕
-  setInterval(createDanmaku, 2000);
-  
+  // 将弹幕元素添加到容器中
+  danmakuContainer.appendChild(danmakuElement);
+
+  // 删除已滚动出去的弹幕元素
+  setTimeout(() => {
+    danmakuElement.remove();
+  }, 10000); // 10秒后删除（与滚动时间匹配）
+}
+
+// 模拟弹幕数据，1秒生成一个弹幕
+setInterval(() => {
+  createDanmaku('这是一条旅行留言！'); // 可以修改为你需要的内容
+}, 1000);

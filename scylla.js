@@ -40,5 +40,9 @@ function createDanmaku(text) {
 
 // 模拟弹幕数据，1秒生成一个弹幕
 setInterval(() => {
-  createDanmaku('这是一条旅行留言！'); // 可以修改为你需要的内容
+  createDanmaku('马杰：生日快乐小网站'); // 可以修改为你需要的内容
 }, 1000);
+
+setInterval(() => {
+    createDanmaku('朴仁国：如果她来滑雪，我就更喜欢她了'); // 可以修改为你需要的内容
+  }, 1000);

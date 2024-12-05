@@ -49,6 +49,17 @@ function createDanmaku(text) {
   }, 10000); // 10 秒后删除
 }
 
+// 点击提交按钮时，将用户输入的内容作为弹幕显示
+submitBtn.addEventListener('click', function () {
+  const userInput = inputBox.value.trim(); // 获取用户输入的内容
+  if (userInput) {
+      createDanmaku(userInput); // 生成弹幕
+      inputBox.value = ''; // 清空输入框
+  } else {
+      alert('请输入内容！');
+  }
+});
+
 // 模拟弹幕数据，1秒生成一个弹幕
 setInterval(() => {
   createDanmaku('马杰：生日快乐小网站'); 
@@ -100,3 +111,10 @@ document.addEventListener('click', function (event) {
       document.body.appendChild(overlay);
   }
 });
+
+
+
+
+
+
+

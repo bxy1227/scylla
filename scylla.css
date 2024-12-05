@@ -126,7 +126,7 @@ body {
     height: 100%; /* 设置容器高度 */
     overflow: hidden;
     white-space: nowrap; /* 不换行 */
-    z-index: 1000; /* 确保弹幕在最上层 */
+    z-index: -100; /* 确保弹幕在最上层 */
   }
   
   /* 弹幕的文字样式 */

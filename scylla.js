@@ -22,27 +22,37 @@ document.addEventListener("DOMContentLoaded", () => {
 // 获取弹幕容器
 const danmakuContainer = document.getElementById('danmaku-container');
 
-// 模拟生成弹幕
-function createDanmaku(text) {
-  const danmakuElement = document.createElement('div');
-  danmakuElement.classList.add('danmaku'); // 添加类名
-  danmakuElement.innerText = text; // 设置弹幕文本内容
-  danmakuElement.style.top = `${Math.random() * 100}px`; // 随机设置弹幕的垂直位置
-  
-  // 将弹幕元素添加到容器中
-  danmakuContainer.appendChild(danmakuElement);
+// 存储使用中的垂直位置
+let usedPositions = [];
 
-  // 删除已滚动出去的弹幕元素
+// 生成弹幕
+function createDanmaku(text) {
+  const danmaku = document.createElement('div');
+  danmaku.classList.add('danmaku');
+  danmaku.textContent = text;
+
+  // 随机生成垂直位置
+  let topPosition;
+  do {
+    topPosition = Math.floor(Math.random() * danmakuContainer.offsetHeight);
+  } while (usedPositions.includes(topPosition));
+  usedPositions.push(topPosition);
+
+  // 设置弹幕位置
+  danmaku.style.top = `${topPosition}px`;
+  danmakuContainer.appendChild(danmaku);
+
+  // 动画结束后删除弹幕，并释放位置
   setTimeout(() => {
-    danmakuElement.remove();
-  }, 10000); // 10秒后删除（与滚动时间匹配）
+    danmaku.remove();
+    usedPositions = usedPositions.filter(pos => pos !== topPosition);
+  }, 10000); // 10 秒后删除
 }
 
 // 模拟弹幕数据，1秒生成一个弹幕
 setInterval(() => {
-  createDanmaku('马杰：生日快乐小网站'); // 可以修改为你需要的内容
+  createDanmaku('马杰：生日快乐小网站'); 
+  createDanmaku('朴仁国：我喜欢txx'); 
+  createDanmaku('谦r：哈哈哈哈哈，教教我'); 
+  createDanmaku(''); // 可以修改为你需要的内容
 }, 1000);
-
-setInterval(() => {
-    createDanmaku('朴仁国：如果她来滑雪，我就更喜欢她了'); // 可以修改为你需要的内容
-  }, 1000);

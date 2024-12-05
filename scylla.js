@@ -52,7 +52,11 @@ function createDanmaku(text) {
 // 模拟弹幕数据，1秒生成一个弹幕
 setInterval(() => {
   createDanmaku('马杰：生日快乐小网站'); 
+  createDanmaku('');
   createDanmaku('朴仁国：我喜欢txx'); 
+  createDanmaku('');
   createDanmaku('谦r：哈哈哈哈哈，教教我'); 
-  createDanmaku(''); // 可以修改为你需要的内容
-}, 1000);
+  createDanmaku('');
+  createDanmaku('谦r：恋爱脑的科学解释'); 
+   // 可以修改为你需要的内容
+}, 2000);

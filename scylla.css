@@ -149,3 +149,44 @@ body {
     }
   }
   
+
+  
+
+  /* 整个 Egypt 页面样式 */
+#egypt-gallery {
+    width: 100%;
+    height: 100vh; /* 使用视口高度让图片区域填满整个屏幕 */
+    overflow-y: scroll; /* 使用户能够滚动查看每张图片 */
+    background-color: #f1f1f1;
+    text-align: center;
+}
+
+#egypt-gallery h2 {
+    margin-top: 20px;
+    font-size: 36px;
+    color: #333;
+    font-weight: bold;
+}
+
+/* 照片网格布局 */
+.photo-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    padding: 20px;
+}
+
+.photo-grid img {
+    width: 90%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* 图片悬停放大效果 */
+.photo-grid img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+}

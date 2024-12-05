@@ -60,3 +60,41 @@ setInterval(() => {
   createDanmaku('谦r：恋爱脑的科学解释'); 
    // 可以修改为你需要的内容
 }, 2000);
+
+
+
+// 点击图片查看放大效果
+document.addEventListener('click', function (event) {
+  if (event.target.tagName === 'IMG' && event.target.closest('#egypt-gallery .photo-grid')) {
+      // 创建一个全屏遮罩层
+      const overlay = document.createElement('div');
+      overlay.style.position = 'fixed';
+      overlay.style.top = '0';
+      overlay.style.left = '0';
+      overlay.style.width = '100%';
+      overlay.style.height = '100%';
+      overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
+      overlay.style.display = 'flex';
+      overlay.style.justifyContent = 'center';
+      overlay.style.alignItems = 'center';
+      overlay.style.zIndex = '9999';
+
+      // 创建放大的图片
+      const img = document.createElement('img');
+      img.src = event.target.src;
+      img.style.maxWidth = '90%';
+      img.style.maxHeight = '90%';
+      img.style.borderRadius = '8px';
+
+      // 将放大图片添加到遮罩层中
+      overlay.appendChild(img);
+
+      // 点击遮罩层关闭放大图
+      overlay.addEventListener('click', function () {
+          document.body.removeChild(overlay);
+      });
+
+      // 将遮罩层添加到 body 中
+      document.body.appendChild(overlay);
+  }
+});

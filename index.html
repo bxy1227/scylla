@@ -92,6 +92,27 @@
     <div id="danmaku-container"></div>
 </section>
             </p>
+            <script type="module">
+                // 引入 Firebase 和 Firestore
+                import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+                import { getFirestore, collection, addDoc, query, orderBy, onSnapshot } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-firestore.js";
+              
+                // Firebase 配置信息
+                const firebaseConfig = {
+                  apiKey: "AIzaSyA8ncDoG4YvDVmTtIxbDCE8Rinco-0rc30",
+                  authDomain: "scylla-xuanyu.firebaseapp.com",
+                  projectId: "scylla-xuanyu",
+                  storageBucket: "scylla-xuanyu.firebasestorage.app",
+                  messagingSenderId: "432550912241",
+                  appId: "1:432550912241:web:8e36bba1a5d6a168e90950",
+                  measurementId: "G-FBBK1VLVPJ"
+                };
+              
+                // 初始化 Firebase 和 Firestore
+                const app = initializeApp(firebaseConfig);
+                const db = getFirestore(app);
+              </script>
+              
         </section>
 
         <section id="section4" class="section special">

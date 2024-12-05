@@ -49,9 +49,14 @@ function createDanmaku(text) {
   }, 10000); // 10 秒后删除
 }
 
+const submitBtn = document.querySelector('.submit-btn');
+const inputBox = document.querySelector('.input-box');
+
+
 // 点击提交按钮时，将用户输入的内容作为弹幕显示
 submitBtn.addEventListener('click', function () {
   const userInput = inputBox.value.trim(); // 获取用户输入的内容
+  console.log(userInput); // 添加日志，查看用户输入内容
   if (userInput) {
       createDanmaku(userInput); // 生成弹幕
       inputBox.value = ''; // 清空输入框
@@ -59,6 +64,29 @@ submitBtn.addEventListener('click', function () {
       alert('请输入内容！');
   }
 });
+
+
+function createDanmaku(text) {
+  console.log('创建弹幕：' + text);  // 添加日志
+  const danmaku = document.createElement('div');
+  danmaku.classList.add('danmaku');
+  danmaku.textContent = text;
+
+  let topPosition;
+  do {
+      topPosition = Math.floor(Math.random() * danmakuContainer.offsetHeight);
+  } while (usedPositions.includes(topPosition));
+  usedPositions.push(topPosition);
+
+  danmaku.style.top = `${topPosition}px`;
+  danmakuContainer.appendChild(danmaku);
+
+  setTimeout(() => {
+      danmaku.remove();
+      usedPositions = usedPositions.filter(pos => pos !== topPosition);
+  }, 10000);
+}
+
 
 // 模拟弹幕数据，1秒生成一个弹幕
 setInterval(() => {

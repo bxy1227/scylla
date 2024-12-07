@@ -437,3 +437,25 @@ body {
 
 
 
+/* 设置渐变文字效果并添加光晕 */
+.dynamic-gradient-text {
+    font-size: 60px; /* 设置字体大小 */
+    font-weight: bold; /* 设置字体加粗 */
+    background: linear-gradient(90deg, #ff6ec7, #ff9a8b, #ffcc70, #8fd3f4, #6b8e23, #ff4b8e, #fd6a02); /* 多种颜色渐变 */
+    background-size: 300% auto; /* 扩展背景宽度，使渐变动态 */
+    -webkit-background-clip: text; /* Webkit 支持的渐变文本 */
+    background-clip: text; /* 标准支持的背景剪裁 */
+    color: transparent; /* 文字颜色透明 */
+    -webkit-text-fill-color: transparent; /* 文字填充透明 */
+    text-align: center; /* 文字居中对齐 */
+    display: inline-block; /* 使文字成为块级元素，允许背景填充 */
+    animation: gradientAnimation 4s ease infinite; /* 动态渐变动画 */
+    /* 添加多个 text-shadow 来模拟光晕效果 */
+    text-shadow: 
+        0 0 8px rgba(255, 255, 255, 0.5),  /* 白色光晕 */
+        0 0 10px rgba(255, 255, 255, 0.5), /* 白色光晕 */
+        0 0 15px rgba(255, 255, 255, 0.5), /* 更大范围的光晕 */
+        0 0 30px rgba(255, 255, 255, 0.6), /* 发光效果 */
+        0 0 40px rgba(255, 255, 255, 0.7); /* 强烈的光晕 */
+}
+

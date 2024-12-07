@@ -140,3 +140,55 @@ document.addEventListener('click', function (event) {
   }
 });
 
+
+
+
+
+
+
+
+// 功能：监听页面滚动，当某个区域进入视口时，为其添加动画类
+document.addEventListener("DOMContentLoaded", () => {
+  const sections = document.querySelectorAll(".section"); // 获取所有需要动画的 section
+
+  const observer = new IntersectionObserver(
+      (entries) => {
+          entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                  entry.target.classList.add("active"); // 当进入视口时，添加 active 类触发动画
+              }
+          });
+      },
+      { threshold: 0.2 } // 当元素进入视口 20% 时触发动画
+  );
+
+  sections.forEach((section) => observer.observe(section)); // 为每个 section 添加观察
+});
+
+
+
+
+
+// 功能：在页面加载完成后隐藏加载动画
+window.addEventListener('load', () => {
+  const loader = document.getElementById('loader');
+  loader.style.display = 'none'; // 隐藏加载动画容器
+});
+
+
+
+const backToTop = document.getElementById('backToTop');
+
+// 显示或隐藏回到顶部按钮
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        backToTop.style.display = 'flex'; // 显示按钮
+    } else {
+        backToTop.style.display = 'none'; // 隐藏按钮
+    }
+});
+
+// 点击按钮返回顶部
+backToTop.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' }); // 平滑滚动到顶部
+});

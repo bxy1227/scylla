@@ -207,3 +207,157 @@ body {
     background-position: center; /* 图片居中显示 */
     background-repeat: no-repeat; /* 防止图片重复 */
 }
+
+
+
+
+
+
+/* 默认隐藏样式，用于初始状态 */
+.section {
+    opacity: 0; /* 初始时透明度为 0，不显示 */
+    transform: translateY(50px); /* 元素初始位置向下偏移 50px */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* 设置动画效果 */
+}
+/* 激活时的动画效果 */
+.section.active {
+    opacity: 1; /* 动画结束时完全显示 */
+    transform: translateY(0); /* 回到原始位置 */
+}
+
+
+
+
+
+
+
+
+/* 普通按钮样式 */
+.button {
+    padding: 10px 20px; /* 按钮的内边距 */
+    background: linear-gradient(90deg, #4CAF50, #45a049); /* 背景颜色渐变 */
+    color: white; /* 按钮文字颜色 */
+    border: none; /* 移除边框 */
+    border-radius: 5px; /* 圆角样式 */
+    transition: transform 0.3s ease, background 0.3s ease; /* 动画过渡效果 */
+    cursor: pointer; /* 鼠标悬停时显示手型 */
+}
+
+/* 鼠标悬停时的效果 */
+.button:hover {
+    transform: scale(1.1); /* 鼠标悬停时按钮轻微放大 */
+    background: linear-gradient(90deg, #45a049, #4CAF50); /* 背景颜色反向渐变 */
+}
+
+
+
+
+
+
+
+
+/* 背景视差样式 */
+.parallax {
+    position: relative; /* 设置定位，确保内容正常显示 */
+    background-attachment: fixed; /* 背景固定不随页面滚动 */
+    background-size: cover; /* 背景图片按比例覆盖整个区域 */
+    background-position: center; /* 背景图片居中显示 */
+    height: 100vh; /* 高度设置为视口高度 */
+}
+
+
+
+
+
+
+
+/* 加载动画容器 */
+#loader {
+    position: fixed; /* 固定位置 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff; /* 背景为白色 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999; /* 确保加载动画在最上层 */
+}
+
+/* 加载动画的旋转圆圈 */
+#loader::after {
+    content: '';
+    width: 50px;
+    height: 50px;
+    border: 5px solid #ccc; /* 外圈灰色 */
+    border-top: 5px solid #4CAF50; /* 上半部分为绿色 */
+    border-radius: 50%; /* 圆形样式 */
+    animation: spin 1s linear infinite; /* 添加旋转动画 */
+}
+
+/* 旋转动画 */
+@keyframes spin {
+    from {
+        transform: rotate(0deg); /* 初始角度 */
+    }
+    to {
+        transform: rotate(360deg); /* 完成一圈旋转 */
+    }
+}
+
+
+
+
+/* 回到顶部按钮的样式 */
+.back-to-top {
+    position: fixed; /* 固定位置 */
+    bottom: 20px;
+    right: 20px;
+    background: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 50%; /* 圆形按钮 */
+    width: 40px;
+    height: 40px;
+    display: none; /* 默认隐藏 */
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* 添加阴影 */
+}
+
+/* 鼠标悬停时效果 */
+.back-to-top:hover {
+    background: #45a049; /* 颜色变亮 */
+}
+
+
+/* 彩色渐变文字效果 */
+.colurful-text {
+    font-size: 48px; /* 设置字体大小 */
+    font-weight: bold; /* 设置字体加粗 */
+    background: linear-gradient(90deg, #84fab0, #8fd3f4);
+ /* 渐变色 */
+    background-clip: text; /* 使背景色应用到文字上 */
+    color: transparent; /* 设置文字颜色为透明，显示背景 */
+    -webkit-background-clip: text; /* 使用 Webkit 支持的背景剪裁到文字 */
+    -webkit-text-fill-color: transparent; /* 使文字的填充色透明，显示背景 */
+    text-align: center; /* 文字居中对齐 */
+    display: inline-block; /* 设置为块级元素，使背景填充生效 */
+}
+
+
+
+/* Flexbox 布局 */
+.header {
+    display: flex;
+    justify-content: space-between; /* 在大屏上将元素分开 */
+    align-items: center;
+}
+.product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center; /* 中心对齐 */
+}

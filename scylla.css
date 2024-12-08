@@ -459,3 +459,38 @@ body {
         0 0 40px rgba(255, 255, 255, 0.7); /* 强烈的光晕 */
 }
 
+
+
+
+
+
+
+
+
+.product-grid {
+    display: flex;
+    flex-direction: column; /* 行上下排列 */
+    align-items: center; /* 居中对齐整个区域 */
+    gap: 20px; /* 每行之间的间距 */
+}
+
+.row {
+    display: flex; /* 每行的卡片水平排列 */
+    justify-content: center; /* 水平居中对齐 */
+    gap: 20px; /* 卡片之间的水平间距 */
+}
+
+.product {
+    padding: 15px 25px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    min-width: 120px; /* 确保卡片宽度一致 */
+    font-size: 18px;
+}
+
+.english-row {
+    margin-bottom: 20px; /* 英文行和中文行之间增加间距 */
+}

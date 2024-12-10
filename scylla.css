@@ -424,15 +424,30 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* 添加阴影效果 */
     transition: transform 0.3s, box-shadow 0.3s; /* 平滑过渡效果 */
 }
+
 /* 鼠标悬停时放大效果 */
 .product:hover {
-    transform: scale(1.55); /* 放大效果 */
+    transform: scale(1.45); /* 放大效果 */
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* 增强阴影效果 */
     background-color: #888888;
 }
 
-
-
+.product {
+    position: relative; /* 允许内部子元素占据整个框 */
+}
+.product a {
+    position: absolute; /* 铺满整个框 */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1; /* 确保链接处于顶部 */
+    display: flex; /* 保持文字居中 */
+    justify-content: center;
+    align-items: center;
+    text-decoration: none; /* 移除下划线 */
+    color: inherit; /* 继承文字颜色 */
+}
 
 
 
@@ -493,4 +508,11 @@ body {
 
 .english-row {
     margin-bottom: 20px; /* 英文行和中文行之间增加间距 */
+}
+
+
+
+.product {
+    /* 其他样式... */
+    pointer-events: auto; /* 确保可以触发点击事件 */
 }
